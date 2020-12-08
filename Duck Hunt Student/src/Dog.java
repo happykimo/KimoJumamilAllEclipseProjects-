@@ -6,7 +6,7 @@ import java.awt.geom.AffineTransform;
 import java.net.URL;
 
 public class Dog {
-	private int x = 0,y = 180;
+	private int x = 400,y = 330;
 	private Image img1; // image of the frog
 	private Image img2;
 	private Image img;
@@ -23,7 +23,17 @@ public class Dog {
 		
 		//these are the 2 lines of code needed draw an image on the screen
 		Graphics2D g2 = (Graphics2D) g;
-
+	
+		int counter = (int)(Math.random()*(1-0+1));
+		if(counter>.5) {
+            img = img1;
+        }
+        else if (counter<0.5) {
+            img = img2;
+        }
+		
+		
+		
 		/* to be completed by student */
 		/* currently, img1 and img2 represent two different of the dog.
 		 * If you continually swap between the two images, you end up with an animation of a laughing dog. 
@@ -38,6 +48,7 @@ public class Dog {
 		
 		g2.drawImage(img, tx, null);   
 	}
+
 	
 	private void init(double a, double b) {
 		tx.setToTranslation(a, b);

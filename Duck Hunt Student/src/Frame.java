@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+import java.awt.Rectangle;
 
 public class Frame extends JPanel implements ActionListener, MouseListener {
 	
@@ -30,16 +31,19 @@ public class Frame extends JPanel implements ActionListener, MouseListener {
 	
 	Font verdana = new Font("Verdana", Font.BOLD,20);
 	int score=0;
+	int bullets=3;
 	
 	public void paint(Graphics g) {
 		super.paintComponent(g);
 		duck.paint(g);
 		duck2.paint(g);
 		tree.paint(g);
+		dog.paint(g);
 		foreground.paint(g);
-		
+	
 		 g.setFont(verdana);
-		 g.drawString(""+score,800,30);
+		 g.drawString("Score:"+score,800,30);
+		 g.drawString("Bullets:"+bullets,100,30);
 	}
 			
 	public static void main(String[] arg) {
@@ -89,12 +93,15 @@ public class Frame extends JPanel implements ActionListener, MouseListener {
 		int y = arg0.getY();
 		duck.collided(x,y);
 		duck2.collided(x, y);
-		if (duck.collided(x,y)==true) {
-			score++;//not updating score
-		}
-		if (duck2.collided(x,y)==true) {
+		if(duck.dead == true) {
 			score++;
+			dead.play();
 		}
+		if(duck2.dead==true) {
+			score++;
+			dead.play();
+		}
+		
 		
 	}
 

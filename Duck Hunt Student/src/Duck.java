@@ -13,7 +13,8 @@ public class Duck implements MouseListener{
 	private int vx=(int)(Math.random()*(11)-5), vy= (int)(Math.random()*(9)-8);
 	private Image img; // image of the frog
 	private AffineTransform tx = AffineTransform.getTranslateInstance(x, y);
-	private boolean dead = false;
+	public boolean dead = false;
+	public boolean miss;
 	public Duck() {
 		img = getImage("Zombie1.png"); //load the image for Tree
 		init(x, y); 				//initialize the location of the image
@@ -30,7 +31,7 @@ public class Duck implements MouseListener{
 		y+=vy;
 		x+=vx;
 		int bounce = 3;
-		g.drawRect(x, y, 100, 100);
+		g.drawRect(x, y, 50, 70);
 	
 		if(y<=50) {
 			vy= (int)(Math.random()*(9));
@@ -84,16 +85,18 @@ public class Duck implements MouseListener{
 		Rectangle a = new Rectangle(x,y, 100, 100);
 		//check if mouse x,y is in the rectangle
 		if(a.contains(mX,mY)) {
-//			System.out.println("ouch");
+			System.out.println("ouch");
 			//what happens to the duck?
 			x=450;
 			y=525;
 			vx=(int)(Math.random()*(11)-5);
 			vy= (int)(Math.random()*(9)-8);
-			return true;
+			dead=true;
+			return dead;
 		}
 		else {
-			return false;
+			dead=false;
+			return dead;
 		}
 	}
 	@Override
