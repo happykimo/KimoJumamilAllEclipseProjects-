@@ -101,6 +101,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener {
 			score++;
 			dead.play();
 		}
+		if (duck.miss ==true&&duck2.miss==true) {
+			bullets--;
+		}
+		
 		
 		
 	}

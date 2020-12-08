@@ -91,12 +91,15 @@ public class Duck implements MouseListener{
 			y=525;
 			vx=(int)(Math.random()*(11)-5);
 			vy= (int)(Math.random()*(9)-8);
+			miss=false;
 			dead=true;
 			return dead;
 		}
 		else {
+			miss=true;
 			dead=false;
 			return dead;
+		
 		}
 	}
 	@Override
