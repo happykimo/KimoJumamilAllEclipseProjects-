@@ -16,7 +16,7 @@ public class Duck implements MouseListener{
 	public boolean dead = false;
 	public boolean miss;
 	public Duck() {
-		img = getImage("Zombie1.png"); //load the image for Tree
+		img = getImage("Zombie1.png"); //load the image for duck
 		init(x, y); 				//initialize the location of the image
 	}
 	
@@ -30,10 +30,10 @@ public class Duck implements MouseListener{
 		y--;
 		y+=vy;
 		x+=vx;
-		int bounce = 3;
-		g.drawRect(x, y, 50, 70);
+		int bounce = 3;// was going to use to count down bounces of duck, but didn't get to it
+		g.drawRect(x, y, 50, 70); // draws an estimate of duck hitbox so it is easier to hit
 	
-		if(y<=50) {
+		if(y<=50) {				//if statements with boundaries that bounce the duck;
 			vy= (int)(Math.random()*(9));
 			bounce--;
 		}
@@ -55,12 +55,24 @@ public class Duck implements MouseListener{
 			bounce =3; 
 		}
 		
-		g2.drawImage(img, tx, null);   
+		g2.drawImage(img, tx, null);   //draws duck
 		tx.setToTranslation(x,y);
 		
 		
 	}
 	
+	public void setVX(int nVX) {
+		vx=nVX;
+	}
+	public void setYV(int nVY) {
+		vy=nVY;
+	}
+	public void setX(int nX) {
+		x=nX;
+	}
+	public void setY(int nY) {
+		y=nY;
+	}
 	
 	private void init(double a, double b) {
 		tx.setToTranslation(a, b);
@@ -78,7 +90,7 @@ public class Duck implements MouseListener{
 		return tempImage;
 	}
 	
-	public boolean collided(int mX ,int mY){
+	public boolean collided(int mX ,int mY){//checks if mouse and duck are colliding
 		System.out.println(mX+":"+mY);
 
 		// represent the duck as a Rectangle object

@@ -4,16 +4,17 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.geom.AffineTransform;
 import java.net.URL;
+import javax.swing.Timer;
 
-public class Dog {
-	private int x = 400,y = 330;
+public class Dog{
+	public int x = 400,y = 330;
 	private Image img1; // image of the frog
 	private Image img2;
 	private Image img;
 	private AffineTransform tx = AffineTransform.getTranslateInstance(x, y);
-
+	
 	public Dog() {
-		img1 = getImage("dog1.png"); //load the image for Tree
+		img1 = getImage("dog1.png"); //load the image for dog
 		img2 = getImage("dog2.png");
 		img = img1;
 		init(x, y); 				//initialize the location of the image
@@ -23,14 +24,17 @@ public class Dog {
 		
 		//these are the 2 lines of code needed draw an image on the screen
 		Graphics2D g2 = (Graphics2D) g;
-	
-		int counter = (int)(Math.random()*(1-0+1));
+		
+		
+		int counter = (int)(Math.random()*(1-0+1)); // animation for dog 
 		if(counter>.5) {
             img = img1;
         }
         else if (counter<0.5) {
             img = img2;
         }
+		
+		
 		
 		
 		
