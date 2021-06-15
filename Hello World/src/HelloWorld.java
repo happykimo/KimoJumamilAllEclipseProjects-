@@ -8,8 +8,8 @@ public class HelloWorld {
 		/*
 		 *This is a multi-line comment
 		 */
-		
 				System.out.println("Hello World");
+				System.out.print(1/10);
 }
 	}
 

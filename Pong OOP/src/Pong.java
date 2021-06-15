@@ -102,7 +102,7 @@ public class Pong extends JPanel implements ActionListener, KeyListener{
 		t.start();
 		f.addKeyListener(this);
 		f.add(this);
-	
+		f.setBackground(Color.black);
 		//make frame visible
 		f.setVisible(true);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
